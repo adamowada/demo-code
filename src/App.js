@@ -3,8 +3,6 @@ import Beast from "./components/Beast.js";
 
 // copy the imports!
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 
 // import data.json
 import data from "./assets/data.json";
