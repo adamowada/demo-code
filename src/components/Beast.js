@@ -17,21 +17,31 @@ class Beast extends React.Component {
 	}
 
 	// event handler!
-	handleClick = () => {
-		// this is where the magic
+	handleClick = (e) => {
+		console.log(e);
+		// this is where the magic happens! .setState() rerenders the component
+		// this is what makes react "reactive"
 		this.setState({ description: 'this component rerendered! ❤️'});
+		// this.setState({ description: this.state.description + "test"});
+
+
+		this.props.setShowModalTrue(this.props.id);
 	}
 
   render() {
     return (
       <Card style={{ width: "18rem" }} className="mx-auto my-5">
-        <Card.Img variant="top" src={this.state.src} />
+		{/* the '() => ' allows a child component to pass in an argument WITHOUT invoking the method first*/}
+        <Card.Img variant="top" src={this.state.src} onClick={(e) => {
+			console.log(e);
+			this.props.setShowModalTrue(this.props.id);
+			}} />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>
           <Card.Text className="fst-italic">{this.state.description}</Card.Text>
 					{/* add the click event listener: */}
 					{/* in the {} in onClick is a reference to the event listener method */}
-          <Button variant="primary" onClick={this.handleClick}>Go somewhere</Button>
+          <Button variant="secondary" onClick={this.handleClick}>Go somewhere</Button>
         </Card.Body>
       </Card>
     );
