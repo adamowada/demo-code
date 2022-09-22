@@ -24,7 +24,7 @@ class Beast extends React.Component {
 		this.setState({ description: 'this component rerendered! ❤️'});
 		// this.setState({ description: this.state.description + "test"});
 
-
+		// Another way of passing in argument(s) to the method passed down through props
 		this.props.setShowModalTrue(this.props.id);
 	}
 
@@ -32,6 +32,7 @@ class Beast extends React.Component {
     return (
       <Card style={{ width: "18rem" }} className="mx-auto my-5">
 		{/* the '() => ' allows a child component to pass in an argument WITHOUT invoking the method first*/}
+		{/* it is one way of passing in argument(s) to the method passed down through props by App.js */}
         <Card.Img variant="top" src={this.state.src} onClick={(e) => {
 			console.log(e);
 			this.props.setShowModalTrue(this.props.id);
